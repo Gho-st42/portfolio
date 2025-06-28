@@ -1,5 +1,3 @@
-
-        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -13,7 +11,6 @@
             });
         });
 
-        // Add subtle animation to cards on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -28,7 +25,6 @@
             });
         }, observerOptions);
 
-        // Observe all cards
         document.querySelectorAll('.skill-category, .project-card, .about-card, .contact-form').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
