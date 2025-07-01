@@ -28,7 +28,6 @@
             
             <div class="social-links">
                 <a href="https://www.instagram.com/bravo___07___/" target="_blank" class="social-link" title="Instagram"><img src="assets/icons-social/instagram.svg" alt="Instagram Icon"></a>
-                <a href="https://wa.me/201005646539" target="_blank" class="social-link" title="WhatsApp"><img src="assets/icons-social/whatsapp.svg" alt="WhatsApp Icon"></a>
                 <a href="https://x.com/backend_stabbed" target="_blank" class="social-link" title="Twitter"><img src="assets/icons-social/twitter.svg" alt="Twitter Icon"></a>
                 <a href="mailto:mohamedmostafaoth.07@gmail.com" class="social-link" title="Email"><img src="assets/icons-social/email.svg" alt="Email Icon"></a>
                 <a href="https://www.linkedin.com/in/mohamed-mostafa-dev" target="_blank" class="social-link" title="LinkedIn"><img src="assets/icons-social/linkedin.svg" alt="LinkedIn Icon"></a>
@@ -63,8 +62,8 @@
                         <span class="skill-tag">C#</span>
                         <span class="skill-tag">C++</span>
                         <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Html</span>
-                        <span class="skill-tag">css</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
                         <span class="skill-tag">JavaScript</span>
                     </div>
                 </div>
@@ -75,7 +74,7 @@
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">HTML</span>
                         <span class="skill-tag">CSS</span>         
-                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Figma(Still Training)</span>
                     </div>
                 </div>
                 
@@ -87,10 +86,66 @@
     <section class="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Media Art Agency Web App</h3>
+                    <p class="project-description">A static website for a Media Art Agency showcasing their portfolio as a marketing agency, services and allowing for client inquiries about anything with ease and allowing for career opportunities with the career page.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Html</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="mission-links">
+                        <a href="https://mediaartagency.vercel.app/" class="mission-link primary">Live Demo</a>
+                        <a href="https://github.com/Gho-st42/media-art/" class="mission-link">GitHub Repo</a>
+                        <a href="https://instagram.com/media_art_agency" class="mission-link">Media Art IG</a>
+                    </div>            
+                </div>                
+            </div>
+        </div>
+    </section>    
+    <section class="projects">
+        <div class="container">
             <div style="display: flex; justify-content: center; margin-top: 2rem;">
                 <span class="skill-tag" style="font-size: 1.3em; padding: 0.7em 2em;">
                     <a href="blog.html" class="projects-more-link" style="color:inherit;text-decoration:none;">Mission Chronicles & Project Updates</a>
                 </span>
+            </div>
+        </div>
+    </section>    
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">What you want to say *</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project, ideas, or just say hello..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span id="btnText">Send Message</span>
+                    </button>
+                    
+                    <div class="form-message" id="formMessage"></div>
+                </form>
             </div>
         </div>
     </section>    
@@ -102,5 +157,35 @@
         </div>
     </footer>
     <script src="script.js"></script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyh2K9LU36dt00cAyHuFt32lTqtJyTXJzeMQtSWdZFXlhdYy5wk0M7slEYZKTacZ7A/exec'; // Replace with your actual URL
+  const form = document.getElementById('contact-form');
+  const btnText = document.getElementById('btnText');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btnText.innerText = 'Sending...';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(response => {
+      btnText.innerText = 'Send Message';
+      formMessage.innerText = 'Message sent successfully!';
+      form.reset();
+    })
+    .catch(error => {
+      btnText.innerText = 'Send Message';
+      formMessage.innerText = 'Error! Please try again.';
+      console.error('Error!', error.message);
+    });
+  });
+</script>
 </body>
 </html>

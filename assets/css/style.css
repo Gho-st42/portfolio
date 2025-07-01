@@ -420,3 +420,34 @@
                 min-height: auto;
             }
         }
+
+        .mission-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .mission-link {
+            background: rgba(124, 135, 129, 0.3);
+            color: #DBE6D6;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(124, 135, 129, 0.4);
+        }
+
+        .mission-link:hover {
+            background: linear-gradient(135deg, #299F93, #E12826);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 159, 147, 0.3);
+        }
+
+        .mission-link.primary {
+            background: linear-gradient(135deg, #299F93, #E12826);
+        }
+
+        .mission-link.primary:hover {
+            transform: translateY(-2px) scale(1.05);
+        }        
