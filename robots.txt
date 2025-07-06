@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mohamed-mostafa-dev.vercel.app/sitemap.xml
